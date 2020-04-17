@@ -14,7 +14,7 @@
 <p id="HoraActual"></p>
 
 <!-- <table id='Tabla'><tr><th align='center'>Disponibles</th><th align='left'>Producto</th></tr> -->
-<table id="TablaPrincipal"></table>
+<table id="Tabla"></table>
 <table id="TablaSecundaria"></table>
 <!-- <div w3-include-html="content.html"></div> -->
 <!-- </table> -->
@@ -25,14 +25,12 @@
 <script>
   $(document).ready(function() {
     $("#HoraActual").load("horaactual.html");
-    $("#TablaPrincipal").load("content.html");
+    $("#Tabla").load("content.html");
     //////////////////////////////////////////
     setTimeout(function() { 
       $("#HoraActual").prepend("(Última Actualización: ");
       $("#HoraActual").append(")");
-      $("#TablaPrincipal").prepend("<table id='Tabla'><tr><th align='center'>Disponibles</th><th align='left'>Producto</th></tr>");
-      $("#TablaPrincipal").append("<strong>Hello</strong>");
-      $("#TablaPrincipal").append("<tr><td>111</td><td>222</td></tr>");
+      $("#Tabla").prepend("<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>");
     }, 100);
     // $(function() {
       // $("#HoraActual").prepend("(Última Actualización: ");
