@@ -27,17 +27,20 @@
     $("#HoraActual").load("horaactual.html");
     $("#TablaPrincipal").load("content.html");
     //////////////////////////////////////////
-    $(function() {
-      $("#HoraActual").prepend("(Última Actualización: ");
-      $("#HoraActual").append(")");
-      $("#TablaPrincipal").prepend("<table id='Tabla'><tr><th align='center'>Disponibles</th><th align='left'>Producto</th></tr>");
-      $("#TablaPrincipal").append("<strong>Hello</strong>");
-      $("#TablaPrincipal").append("<tr><td>111</td><td>222</td></tr>");
-    });
+    setTimeout(function() { 
+      $("#TablaSecundaria").append("<strong>Hello</strong>");
+    }, 3000);
+    // $(function() {
+      // $("#HoraActual").prepend("(Última Actualización: ");
+      // $("#HoraActual").append(")");
+      // $("#TablaPrincipal").prepend("<table id='Tabla'><tr><th align='center'>Disponibles</th><th align='left'>Producto</th></tr>");
+      // $("#TablaPrincipal").append("<strong>Hello</strong>");
+      // $("#TablaPrincipal").append("<tr><td>111</td><td>222</td></tr>");
+    // });
     ///////////////////////////////////////////
     // $('#TablaSecundaria').append($('<tr><td>111</td><td>222</td></tr>').load('content.html'));
-    $('#TablaSecundaria').load('content.html').append($('<tr><td>111</td><td>222</td></tr>'));
-    $("#TablaSecundaria").append("<strong>Hello</strong>");
+    // $('#TablaSecundaria').load('content.html').append($('<tr><td>111</td><td>222</td></tr>'));
+    // $("#TablaSecundaria").append("<strong>Hello</strong>");
   });
 </script>
 
