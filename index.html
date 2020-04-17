@@ -28,8 +28,12 @@
     $("#TablaPrincipal").load("content.html");
     //////////////////////////////////////////
     setTimeout(function() { 
-      $("#TablaSecundaria").append("<strong>Hello</strong>");
-    }, 3000);
+      $("#HoraActual").prepend("(Última Actualización: ");
+      $("#HoraActual").append(")");
+      $("#TablaPrincipal").prepend("<table id='Tabla'><tr><th align='center'>Disponibles</th><th align='left'>Producto</th></tr>");
+      $("#TablaPrincipal").append("<strong>Hello</strong>");
+      $("#TablaPrincipal").append("<tr><td>111</td><td>222</td></tr>");
+    }, 100);
     // $(function() {
       // $("#HoraActual").prepend("(Última Actualización: ");
       // $("#HoraActual").append(")");
