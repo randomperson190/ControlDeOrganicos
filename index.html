@@ -79,6 +79,7 @@
     function isOdd(num) {return num % 2;}
     function PintarNumerosMalos() {for (var i = 0; i < 200; i++) {if (isOdd(i) == 0) {try {var Valor = parseInt(document.getElementsByTagName('td')[i].innerText);} catch (e) {continue;}document.getElementsByTagName('td')[i].style.textAlign ='center';if (Valor <= 3) {document.getElementsByTagName('td')[i].style.color ='orange';document.getElementsByTagName('td')[i + 1].style.color ='orange';}if (Valor == 0) {document.getElementsByTagName('td')[i].style.color ='red';document.getElementsByTagName('td')[i + 1].style.color ='red';}}}}
       PintarNumerosMalos();
+      $("#AllContent").css("display", "block");
       // ### Eliminación de filas completamente vacías ###
       for (var h = 0; h < 200; h++) {
         for (var i = 0; i < 200; i++) {
@@ -105,7 +106,6 @@
             continue;
         }
     }
-    $("#AllContent").css("display", "block");
     }, 550);
     // ### Recargar la Web automáticamente cada 5 minutos ###
     setInterval('location.reload(true);', 300000);
