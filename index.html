@@ -48,7 +48,7 @@ lastModified(target).then(date => {
   var Minutos = dateObj.getMinutes();
   var Horas = dateObj.getHours();
   var Anio = dateObj.getFullYear();
-  FechaDelArchivo = Minutos + ":" + "Horas" + " - " + Dia + "/" + Mes + "/" + Anio
+  var FechaDelArchivo = Minutos + ":" + "Horas" + " - " + Dia + "/" + Mes + "/" + Anio
 }).catch(err => {
   console.log(err)
 })
