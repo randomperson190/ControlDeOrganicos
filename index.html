@@ -10,7 +10,8 @@
     p {margin: 0;display: inline-block;font-size: 12px;padding: 5px;font-style: italic;color: grey;}
     table,th {text-align: left;}.Titulo {color: rgba(190, 7, 245, 0.842);text-decoration: underline;font-weight: bold;padding-bottom: 3px;display: inline-block;}
     hr {margin-top: 4px;margin-bottom: 4px;}.Titulo:hover {color: rgba(190, 7, 221, 0.999);}
-    #AllContent { display: none;}
+    #Loading { height: 480px; }
+    #AllContent { display: none; }
   </style>
   </head>
   <body>
@@ -81,6 +82,7 @@
     function PintarNumerosMalos() {for (var i = 0; i < 200; i++) {if (isOdd(i) == 0) {try {var Valor = parseInt(document.getElementsByTagName('td')[i].innerText);} catch (e) {continue;}document.getElementsByTagName('td')[i].style.textAlign ='center';if (Valor <= 3) {document.getElementsByTagName('td')[i].style.color ='orange';document.getElementsByTagName('td')[i + 1].style.color ='orange';}if (Valor == 0) {document.getElementsByTagName('td')[i].style.color ='red';document.getElementsByTagName('td')[i + 1].style.color ='red';}}}}
       PintarNumerosMalos();
       $("#AllContent").css("display", "block");
+      $("#Loading").css("display", "none");
       // ### Eliminación de filas completamente vacías ###
       for (var h = 0; h < 200; h++) {
         for (var i = 0; i < 200; i++) {
