@@ -12,53 +12,47 @@
 
 <script>
   function timeConverter(UNIX_timestamp){
-  var a = new Date(UNIX_timestamp * 1000);
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-  return time;
-}
-console.log(timeConverter(0));
-function lastModified(uri){
-  return new Promise((resolve, reject) => {
-    $.ajax({url: uri, type:"HEAD"}).done((d, s, xhr) => {
-      let date = Date.parse(xhr.getResponseHeader("Last-Modified"));
-      resolve(date);
-    }).fail((xhr, s, err) => {
-      reject(s)
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
+  }
+  function lastModified(uri){
+    return new Promise((resolve, reject) => {
+      $.ajax({url: uri, type:"HEAD"}).done((d, s, xhr) => {
+        let date = Date.parse(xhr.getResponseHeader("Last-Modified"));
+        resolve(date);
+      }).fail((xhr, s, err) => {
+        reject(s)
+      })
     })
-  })
-}
-var target = location.href + 'content.html'
-lastModified(target).then(date => {
-  dateObj = new Date(date);
-  var Ahora = new Date();
-  //console.log("Dia: " + dateObj.getDate());
-  //console.log("Mes: " + parseInt(Ahora.getMonth() + 1));
-  //console.log("Minutos: " + dateObj.getMinutes());
-  //console.log("Horas: " + dateObj.getHours()); 
-  //console.log("Año: " + dateObj.getFullYear());
-  var Dia = dateObj.getDate();
-  var Mes = dateObj.getMonth();
-  var Minutos = dateObj.getMinutes();
-  var Horas = dateObj.getHours();
-  var Anio = dateObj.getFullYear();
-  var FechaDelArchivo = Minutos + ":" + "Horas" + " - " + Dia + "/" + Mes + "/" + Anio
-}).catch(err => {
-  console.log(err)
-})
-
-console.log(FechaDelArchivo);
+  }
 
 $(document).ready(function() {
   $("#HoraActual").load("horaactual.html");
   $("#Tabla").load("content.html");
   //////////////////////////////////////////
+  var target = location.href + 'content.html'
+  lastModified(target).then(date => {
+  dateObj = new Date(date);
+  var Ahora = new Date();
+  var Dia = dateObj.getDate();
+  var Mes = dateObj.getMonth();
+  var Minutos = dateObj.getMinutes();
+  var Horas = dateObj.getHours();
+  var Anio = dateObj.getFullYear();
+  var FechaDelArchivo = Minutos + ":" + "Horas" + " - " + Dia + "/" + Mes + "/" + Anio;
+  console.log(FechaDelArchivo);
+  }).catch(err => {
+    console.log(err)
+  })
+  /////////////////////////////////////////
   setTimeout(function() { 
     $("#HoraActual").prepend("(Última Actualización: ");
     $("#HoraActual").append(")");
