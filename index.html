@@ -34,27 +34,29 @@
     })
   }
 
-$(document).ready(function() {
-  //$("#HoraActual").load("horaactual.html");
-  $("#Tabla").load("content.html");
-  //////////////////////////////////////////
-  /////////////////////////////////////////
-  setTimeout(function() { 
-    var target = location.href + 'content.html'
-    lastModified(target).then(date => {
-    dateObj = new Date(date);
-    var Ahora = new Date();
-    var Dia = dateObj.getDate();
-    var Mes = dateObj.getMonth();
-    var Minutos = dateObj.getMinutes();
-    var Horas = dateObj.getHours();
-    var Anio = dateObj.getFullYear();
-    var FechaDelArchivo = Minutos + ":" + Horas + " - " + Dia + "/" + Mes + "/" + Anio;
-    console.log(FechaDelArchivo);
-    $("#HoraActual").prepend("(Última Actualización: " + FechaDelArchivo + ")");
-    }).catch(err => {
-      console.log(err);
+  $(document).ready(function() {
+    //$("#HoraActual").load("horaactual.html");
+    $("#Tabla").load("content.html");
+    //////////////////////////////////////////
+    /////////////////////////////////////////
+    /*
+    setTimeout(function() { 
+      var target = location.href + 'content.html'
+      lastModified(target).then(date => {
+      dateObj = new Date(date);
+      var Ahora = new Date();
+      var Dia = dateObj.getDate();
+      var Mes = dateObj.getMonth();
+      var Minutos = dateObj.getMinutes();
+      var Horas = dateObj.getHours();
+      var Anio = dateObj.getFullYear();
+      var FechaDelArchivo = Minutos + ":" + Horas + " - " + Dia + "/" + Mes + "/" + Anio;
+      console.log(FechaDelArchivo);
+      $("#HoraActual").prepend("(Última Actualización: " + FechaDelArchivo + ")");
+      }).catch(err => {
+        console.log(err);
     })
+    */
     //////////////////////////////////////////
     /////////////////////////////////////////
     //$("#HoraActual").prepend("(Última Actualización: ");
@@ -64,7 +66,7 @@ $(document).ready(function() {
     $("#Tabla").prepend("<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>");
     function isOdd(num) {return num % 2;}
     function PintarNumerosMalos() {for (var i = 0; i < 200; i++) {if (isOdd(i) == 0) {try {var Valor = parseInt(document.getElementsByTagName('td')[i].innerText);} catch (e) {continue;}document.getElementsByTagName('td')[i].style.textAlign ='center';if (Valor <= 3) {document.getElementsByTagName('td')[i].style.color ='orange';document.getElementsByTagName('td')[i + 1].style.color ='orange';}if (Valor == 0) {document.getElementsByTagName('td')[i].style.color ='red';document.getElementsByTagName('td')[i + 1].style.color ='red';}}}}PintarNumerosMalos();
-  }, 750);
-  setInterval('location.reload(true);', 300000);
-});
+    }, 750);
+    setInterval('location.reload(true);', 300000);
+  });
 </script>
