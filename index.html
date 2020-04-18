@@ -85,7 +85,7 @@
             var textoEnFila = document.getElementsByTagName("tr")[i].innerText;
             var textoEnFila = textoEnFila.charAt(0);
             //console.log("-"+textoEnFila+"-");
-            if (textoEnFila == "	") || textoEnFila == " "){
+            if ((textoEnFila == "	") || (textoEnFila == " ")) {
                 //console.log(textoEnFila);
                 document.getElementsByTagName("tr")[i].remove();
             }
