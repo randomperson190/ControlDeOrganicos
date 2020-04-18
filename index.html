@@ -52,7 +52,7 @@
       var Horas = dateObj.getHours();
       var Anio = dateObj.getFullYear();
       var FechaDelArchivo = Horas + ":" + Minutos + " - " + Dia + "/" + Mes + "/" + Anio;
-      console.log(FechaDelArchivo);
+      //console.log(FechaDelArchivo);
       $("#HoraActual").prepend("(Última Actualización: " + FechaDelArchivo + ")");
       }).catch(err => {
         console.log(err);
