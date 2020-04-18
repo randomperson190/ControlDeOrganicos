@@ -66,7 +66,7 @@
     $("#Tabla").prepend("<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>");
     function isOdd(num) {return num % 2;}
     function PintarNumerosMalos() {for (var i = 0; i < 200; i++) {if (isOdd(i) == 0) {try {var Valor = parseInt(document.getElementsByTagName('td')[i].innerText);} catch (e) {continue;}document.getElementsByTagName('td')[i].style.textAlign ='center';if (Valor <= 3) {document.getElementsByTagName('td')[i].style.color ='orange';document.getElementsByTagName('td')[i + 1].style.color ='orange';}if (Valor == 0) {document.getElementsByTagName('td')[i].style.color ='red';document.getElementsByTagName('td')[i + 1].style.color ='red';}}}}PintarNumerosMalos();
-    }, 750);
+    }, 600);
     setInterval('location.reload(true);', 300000);
   });
 </script>
