@@ -59,7 +59,7 @@
       dateObj = new Date(date);
       var Ahora = new Date();
       var Dia = dateObj.getDate();
-      var Mes = dateObj.getMonth();
+      var Mes = Ahora.getMonth();
       var Minutos = dateObj.getMinutes();
       if (Minutos < 10)
         Minutos = "0" + Minutos;
