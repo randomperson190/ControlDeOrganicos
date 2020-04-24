@@ -152,6 +152,36 @@
         return DiaEnLetras
     }
 /////////////////////////////////////////
+function PintarNumerosMalos() {
+    for (var i = 0; i < 200; i++) {
+        if (isOdd(i) == 0) {
+            try {
+                var Valor = parseInt(
+                    document.getElementsByTagName("td")[i].innerText
+                );
+            } catch (e) {
+                continue;
+            }
+            document.getElementsByTagName("td")[i].style.textAlign =
+                "center";
+            if (Valor <= 3) {
+                document.getElementsByTagName("td")[i].style.color =
+                    "orange";
+                document.getElementsByTagName("td")[
+                    i + 1
+                ].style.color = "orange";
+            }
+            if (Valor == 0) {
+                document.getElementsByTagName("td")[i].style.color =
+                    "red";
+                document.getElementsByTagName("td")[
+                    i + 1
+                ].style.color = "red";
+            }
+        }
+    }
+}
+/////////////////////////////////////////
 function RealizarProcesoDeAprolijidad() {
     // ### Pintar Números Malos ###
     PintarNumerosMalos();
@@ -404,35 +434,6 @@ function RealizarProcesoDeAprolijidad() {
             );
             function isOdd(num) {
                 return num % 2;
-            }
-            function PintarNumerosMalos() {
-                for (var i = 0; i < 200; i++) {
-                    if (isOdd(i) == 0) {
-                        try {
-                            var Valor = parseInt(
-                                document.getElementsByTagName("td")[i].innerText
-                            );
-                        } catch (e) {
-                            continue;
-                        }
-                        document.getElementsByTagName("td")[i].style.textAlign =
-                            "center";
-                        if (Valor <= 3) {
-                            document.getElementsByTagName("td")[i].style.color =
-                                "orange";
-                            document.getElementsByTagName("td")[
-                                i + 1
-                            ].style.color = "orange";
-                        }
-                        if (Valor == 0) {
-                            document.getElementsByTagName("td")[i].style.color =
-                                "red";
-                            document.getElementsByTagName("td")[
-                                i + 1
-                            ].style.color = "red";
-                        }
-                    }
-                }
             }
             RealizarProcesoDeAprolijidad();
             $("#AllContent").css("display", "block");
