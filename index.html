@@ -152,6 +152,10 @@
         return DiaEnLetras
     }
 /////////////////////////////////////////
+function isOdd(num) {
+    return num % 2;
+}
+/////////////////////////////////////////
 function PintarNumerosMalos() {
     for (var i = 0; i < 200; i++) {
         if (isOdd(i) == 0) {
@@ -432,9 +436,6 @@ function RealizarProcesoDeAprolijidad() {
             $("#Tabla").prepend(
                 "<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>"
             );
-            function isOdd(num) {
-                return num % 2;
-            }
             RealizarProcesoDeAprolijidad();
             $("#AllContent").css("display", "block");
             $("#Loading").css("display", "none");
