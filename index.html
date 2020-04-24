@@ -71,6 +71,7 @@
                 font-style: normal;
                 margin-left: -6px;
                 padding-top: 1px;
+                padding-bottom: 1px;
                 color: black;
             }
         </style>
@@ -121,17 +122,65 @@
     )
         .then((blob) => blob.json())
         .then((data) => {
-            let numero = 0;
-            console.log(data[numero]);
-            console.log(data[1]);
-            console.log(data[2]);
-            document.querySelector("#Fecha_1").innerText =
-                "• " +
-                data[numero].date +
-                ": " +
-                data[numero].start +
-                " a " +
-                data[numero].end;
+            data_0 = data[0];
+            data_1 = data[1];
+            data_2 = data[2];
+            data_3 = data[3];
+            data_4 = data[4];
+            if (data_0 != undefined) {
+                document.querySelector("#Fecha_1").innerText =
+                    "• " +
+                    data[0].date +
+                    ": " +
+                    data[0].start +
+                    " a " +
+                    data[0].end;
+            }
+            if (data_1 != undefined) {
+                document.querySelector("#Fecha_2").innerText =
+                    "• " +
+                    data[1].date +
+                    ": " +
+                    data[1].start +
+                    " a " +
+                    data[1].end;
+            }
+            if (data_2 != undefined) {
+                document.querySelector("#Fecha_3").innerText =
+                    "• " +
+                    data[2].date +
+                    ": " +
+                    data[2].start +
+                    " a " +
+                    data[2].end;
+            }
+            if (data_3 != undefined) {
+                document.querySelector("#Fecha_4").innerText =
+                    "• " +
+                    data[3].date +
+                    ": " +
+                    data[3].start +
+                    " a " +
+                    data[3].end;
+            }
+            if (data_4 != undefined) {
+                document.querySelector("#Fecha_5").innerText =
+                    "• " +
+                    data[4].date +
+                    ": " +
+                    data[4].start +
+                    " a " +
+                    data[4].end;
+            }
+            if (data_5 != undefined) {
+                document.querySelector("#Fecha_6").innerText =
+                    "• " +
+                    data[5].date +
+                    ": " +
+                    data[5].start +
+                    " a " +
+                    data[5].end;
+            }
         });
 </script>
 
