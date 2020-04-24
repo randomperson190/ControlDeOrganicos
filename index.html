@@ -104,21 +104,38 @@
 </html>
 
 <script>
-    // ### Obtención de Fechas ###
+        // ### Obtención de Fechas ###
+        /*
+        fetch("https://cors-anywhere.herokuapp.com/" + 'https://api.talloverde.com/api/zones/48/availableSchedules', {
+                "headers": {
+                    "accept-language": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "no-cors",
+                    "sec-fetch-site": "cross-site",
+                },
+            })
+            .then(blob => blob.json())
+            .then(data => {
+            let numero = 0;
+            console.log(data[numero]);
+            document.querySelector("#Fecha_1").innerText = "• " + data[numero].date + ": " + data[numero].start + " a " + data[numero].end;
+            return data;})
+        */
     fetch("https://cors-anywhere.herokuapp.com/" + 'https://api.talloverde.com/api/zones/48/availableSchedules', {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "accept-language": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "no-cors",
-                "sec-fetch-site": "cross-site",
-            },
-        })
-        .then(blob => blob.json())
-        .then(data => {
-        console.log(data[0]);
-        document.querySelector("#Fecha_1").innerText = "• " + data[0].date + ": " + data[0].start + " a " + data[0].end;
-        return data;}))
+        "headers": {
+            "accept": "application/json, text/plain, */*",
+            "accept-language": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "no-cors",
+            "sec-fetch-site": "cross-site",
+        },
+    })
+    .then(blob => blob.json())
+    .then(data => {
+    let numero = 1;
+    console.log(data[0]);
+    document.querySelector("#Fecha_1").innerText = "• " + data[numero].date + ": " + data[numero].start + " a " + data[numero].end;
+    return data;}))
 </script>
 
 <script>
