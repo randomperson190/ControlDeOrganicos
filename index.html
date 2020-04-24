@@ -74,6 +74,12 @@
                 padding-bottom: 1px;
                 color: black;
             }
+            #Fecha_1, #Fecha_2, #Fecha_3, #Fecha_4, #Fecha_5, #Fecha_6 {
+                display: none;   
+            }
+            #BR_Fecha_1, #BR_Fecha_2, #BR_Fecha_3, #BR_Fecha_4, #BR_Fecha_5, #BR_Fecha_6 {
+                display: none;   
+            }
         </style>
     </head>
     <body>
@@ -172,74 +178,91 @@
             data_5 = data[5];
             let FechaCompleta;
             if (data_0 != undefined) {
-                //FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
+                FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
                 document.querySelector("#Fecha_1").innerText =
-                    "• " +
+                    "• " + FechaCompelta + " " +
                     data[0].date +
                     ": " +
                     data[0].start +
                     " a " +
                     data[0].end;
+                document.querySelector("#Fecha_1").style.display = "block";
+                document.querySelector("#BR_Fecha_1").style.display = "block";
             } else {
                 document.querySelector("#Fecha_1").style.display = "none";
                 document.querySelector("#BR_Fecha_1").style.display = "none";
             }
             if (data_1 != undefined) {
+                FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
                 document.querySelector("#Fecha_2").innerText =
-                    "• " +
+                    "• " + FechaCompelta + " " +
                     data[1].date +
                     ": " +
                     data[1].start +
                     " a " +
                     data[1].end;
+                document.querySelector("#Fecha_2").style.display = "block";
+                document.querySelector("#BR_Fecha_2").style.display = "block";
             } else {
                 document.querySelector("#Fecha_2").style.display = "none";
                 document.querySelector("#BR_Fecha_2").style.display = "none";
             }
             if (data_2 != undefined) {
+                FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
                 document.querySelector("#Fecha_3").innerText =
-                    "• " +
+                    "• " + FechaCompelta + " " +
                     data[2].date +
                     ": " +
                     data[2].start +
                     " a " +
                     data[2].end;
+                document.querySelector("#Fecha_3").style.display = "block";
+                document.querySelector("#BR_Fecha_3").style.display = "block";
             } else {
                 document.querySelector("#Fecha_3").style.display = "none";
                 document.querySelector("#BR_Fecha_3").style.display = "none";
             }
             if (data_3 != undefined) {
+                FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
                 document.querySelector("#Fecha_4").innerText =
-                    "• " +
+                    "• " + FechaCompelta + " " +
                     data[3].date +
                     ": " +
                     data[3].start +
                     " a " +
                     data[3].end;
+                document.querySelector("#Fecha_4").style.display = "block";
+                document.querySelector("#BR_Fecha_4").style.display = "block";
             } else {
                 document.querySelector("#Fecha_4").style.display = "none";
                 document.querySelector("#BR_Fecha_4").style.display = "none";
             }
             if (data_4 != undefined) {
+                FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
                 document.querySelector("#Fecha_5").innerText =
-                    "• " +
+                    "• " + FechaCompelta + " " +
                     data[4].date +
                     ": " +
                     data[4].start +
                     " a " +
                     data[4].end;
+                document.querySelector("#Fecha_5").style.display = "block";
+                document.querySelector("#BR_Fecha_5").style.display = "block";
             } else {
                 document.querySelector("#Fecha_5").style.display = "none";
                 document.querySelector("#BR_Fecha_5").style.display = "none";
             }
             if (data_5 != undefined) {
+                FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
                 document.querySelector("#Fecha_6").innerText =
-                    "• " +
+                    "• " + FechaCompelta + " " +
                     data[5].date +
                     ": " +
                     data[5].start +
                     " a " +
                     data[5].end;
+                document.querySelector("#Fecha_6").style.display = "block";
+                document.querySelector("#BR_Fecha_6").style.display = "block";
             } else {
                 document.querySelector("#Fecha_6").style.display = "none";
                 document.querySelector("#BR_Fecha_6").style.display = "none";
