@@ -84,17 +84,17 @@
             >
             <br />
             <p id="Fecha_1" class="Fechas">• --------------</p>
-            <br />
+            <br id="BR_Fecha_1" />
             <p id="Fecha_2" class="Fechas">• --------------</p>
-            <br />
+            <br id="BR_Fecha_2" />
             <p id="Fecha_3" class="Fechas">• --------------</p>
-            <br />
+            <br id="BR_Fecha_3" />
             <p id="Fecha_4" class="Fechas">• --------------</p>
-            <br />
+            <br id="BR_Fecha_4" />
             <p id="Fecha_5" class="Fechas">• --------------</p>
-            <br />
+            <br id="BR_Fecha_5" />
             <p id="Fecha_6" class="Fechas">• --------------</p>
-            <br />
+            <br id="BR_Fecha_6" />
             <a href="https://www.comosiempreorganico.com/" target="_blank"
                 ><div class="Titulo">::: ComoSiempreOrganico :::</div></a
             >
@@ -127,6 +127,7 @@
             data_2 = data[2];
             data_3 = data[3];
             data_4 = data[4];
+            data_5 = data[5];
             if (data_0 != undefined) {
                 document.querySelector("#Fecha_1").innerText =
                     "• " +
@@ -137,6 +138,7 @@
                     data[0].end;
             } else {
                 document.querySelector("#Fecha_1").style.display = "none";
+                document.querySelector("#BR_Fecha_1").style.display = "none";
             }
             if (data_1 != undefined) {
                 document.querySelector("#Fecha_2").innerText =
@@ -148,6 +150,7 @@
                     data[1].end;
             } else {
                 document.querySelector("#Fecha_2").style.display = "none";
+                document.querySelector("#BR_Fecha_2").style.display = "none";
             }
             if (data_2 != undefined) {
                 document.querySelector("#Fecha_3").innerText =
@@ -159,6 +162,7 @@
                     data[2].end;
             } else {
                 document.querySelector("#Fecha_3").style.display = "none";
+                document.querySelector("#BR_Fecha_3").style.display = "none";
             }
             if (data_3 != undefined) {
                 document.querySelector("#Fecha_4").innerText =
@@ -170,6 +174,7 @@
                     data[3].end;
             } else {
                 document.querySelector("#Fecha_4").style.display = "none";
+                document.querySelector("#BR_Fecha_4").style.display = "none";
             }
             if (data_4 != undefined) {
                 document.querySelector("#Fecha_5").innerText =
@@ -181,6 +186,7 @@
                     data[4].end;
             } else {
                 document.querySelector("#Fecha_5").style.display = "none";
+                document.querySelector("#BR_Fecha_5").style.display = "none";
             }
             if (data_5 != undefined) {
                 document.querySelector("#Fecha_6").innerText =
@@ -192,6 +198,7 @@
                     data[5].end;
             } else {
                 document.querySelector("#Fecha_6").style.display = "none";
+                document.querySelector("#BR_Fecha_6").style.display = "none";
             }
         });
 </script>
