@@ -340,7 +340,7 @@ function RealizarProcesoDeAprolijidad() {
                 document.querySelector("#Fecha_6").style.display = "none";
                 document.querySelector("#BR_Fecha_6").style.display = "none";
             }
-            var ScrapeoFinalizado_TalloVerde = true;
+            ScrapeoFinalizado_TalloVerde = true;
         });
 </script>
 
@@ -437,7 +437,7 @@ function RealizarProcesoDeAprolijidad() {
             $("#Tabla").prepend (
                 "<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>"
             );
-            var ScrapeoFinalizado_ComoSiempreOrganico = true;
+            ScrapeoFinalizado_ComoSiempreOrganico = true;
         });
     });
 </script>
@@ -446,7 +446,7 @@ function RealizarProcesoDeAprolijidad() {
     // ### Recargar cada 5 Minutos ###
     setTimeout(function(){ location.reload(); }, 300000);
     setInterval(function(){ 
-        if (ScrapeoFinalizado_TalloVerde && ScrapeoFinalizado_ComoSiempreOrganico) {
+        if (ScrapeoFinalizado_TalloVerde == true && ScrapeoFinalizado_ComoSiempreOrganico == true) {
             RealizarProcesoDeAprolijidad();
             $("#AllContent").css("display", "block");
             $("#Loading").css("display", "none");
