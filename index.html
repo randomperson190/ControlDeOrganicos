@@ -137,8 +137,8 @@
     )
         .then((blob) => blob.json())
         .then((data) => {
-            let numero = 1;
-            console.log(data[0]);
+            let numero = 0;
+            console.log(data[numero]);
             document.querySelector("#Fecha_1").innerText =
                 "• " +
                 data[numero].date +
