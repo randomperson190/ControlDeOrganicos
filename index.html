@@ -104,167 +104,7 @@
 </html>
 
 <script>
-        function timeConverter(UNIX_timestamp) {
-            var a = new Date(UNIX_timestamp * 1000);
-            var months = [
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec",
-            ];
-            var year = a.getFullYear();
-            var month = months[a.getMonth()];
-            var date = a.getDate();
-            var hour = a.getHours();
-            var min = a.getMinutes();
-            var sec = a.getSeconds();
-            var time =
-                date +
-                " " +
-                month +
-                " " +
-                year +
-                " " +
-                hour +
-                ":" +
-                min +
-                ":" +
-                sec;
-            return time;
-        }
-        function lastModified(uri) {
-            return new Promise((resolve, reject) => {
-                $.ajax({ url: uri, type: "HEAD" })
-                    .done((d, s, xhr) => {
-                        let date = Date.parse(
-                            xhr.getResponseHeader("Last-Modified")
-                        );
-                        resolve(date);
-                    })
-                    .fail((xhr, s, err) => {
-                        reject(s);
-                    });
-            });
-        }
-
-        $(document).ready(function () {
-            $("#Tabla").load("content.html");
-            //////////////////////////////////////////
-            /////////////////////////////////////////
-            setTimeout(function () {
-                var target = location.href + "content.html";
-                lastModified(target)
-                    .then((date) => {
-                        dateObj = new Date(date);
-                        var Ahora = new Date();
-                        var Dia = dateObj.getDate();
-                        var Mes = dateObj.getMonth() + 1;
-                        if (Mes == 13) Mes = 1;
-                        var Minutos = dateObj.getMinutes();
-                        if (Minutos < 10) Minutos = "0" + Minutos;
-                        var Horas = dateObj.getHours();
-                        var Anio = dateObj.getFullYear();
-                        var FechaDelArchivo =
-                            Horas +
-                            ":" +
-                            Minutos +
-                            " - " +
-                            Dia +
-                            "/" +
-                            Mes +
-                            "/" +
-                            Anio;
-                        //console.log(FechaDelArchivo);
-                        $("#HoraActual").prepend(
-                            "(Última Actualización: " + FechaDelArchivo + ")"
-                        );
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-                //////////////////////////////////////////
-                /////////////////////////////////////////
-                //$("#HoraActual").prepend("(Última Actualización: ");
-                //$("#HoraActual").append(")");
-                //////////////////////////////////////////
-                /////////////////////////////////////////
-                $("#Tabla").prepend(
-                    "<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>"
-                );
-                function isOdd(num) {
-                    return num % 2;
-                }
-                function PintarNumerosMalos() {
-                    for (var i = 0; i < 200; i++) {
-                        if (isOdd(i) == 0) {
-                            try {
-                                var Valor = parseInt(
-                                    document.getElementsByTagName("td")[i].innerText
-                                );
-                            } catch (e) {
-                                continue;
-                            }
-                            document.getElementsByTagName("td")[i].style.textAlign =
-                                "center";
-                            if (Valor <= 3) {
-                                document.getElementsByTagName("td")[i].style.color =
-                                    "orange";
-                                document.getElementsByTagName("td")[
-                                    i + 1
-                                ].style.color = "orange";
-                            }
-                            if (Valor == 0) {
-                                document.getElementsByTagName("td")[i].style.color =
-                                    "red";
-                                document.getElementsByTagName("td")[
-                                    i + 1
-                                ].style.color = "red";
-                            }
-                        }
-                    }
-                }
-                PintarNumerosMalos();
-                $("#AllContent").css("display", "block");
-                $("#Loading").css("display", "none");
-                // ### Eliminación de filas completamente vacías ###
-                for (var h = 0; h < 200; h++) {
-                    for (var i = 0; i < 200; i++) {
-                        try {
-                            var textoEnFila = document.getElementsByTagName("tr")[i]
-                                .innerText;
-                            if (
-                                textoEnFila == "	" ||
-                                textoEnFila == "	" ||
-                                textoEnFila == "	"
-                            )
-                                document.getElementsByTagName("tr")[i].remove();
-                        } catch (e) {
-                            continue;
-                        }
-                    }
-                }
-                // ### Eliminación de valores vacíos ###
-                for (var i = 0; i < 200; i++) {
-                    try {
-                        var textoEnFila = document.getElementsByTagName("tr")[i]
-                            .innerText;
-                        var textoEnFila = textoEnFila.charAt(0);
-                        if (textoEnFila == "	" || textoEnFila == " ") {
-                            document.getElementsByTagName("tr")[i].remove();
-                        }
-                    } catch (e) {
-                        continue;
-                    }
-                }
-                // ### Obtención de Fechas ###
+    // ### Obtención de Fechas ###
     fetch("https://cors-anywhere.herokuapp.com/" + 'https://api.talloverde.com/api/zones/48/availableSchedules', {
             "headers": {
                 "accept": "application/json, text/plain, */*",
@@ -278,10 +118,172 @@
         .then(data => {
         console.log(data[0]);
         document.querySelector("#Fecha_1").innerText = "• " + data[0].date + ": " + data[0].start + " a " + data[0].end;
-        return data;
-        })
-            }, 550);
-            // ### Recargar la Web automáticamente cada 5 minutos ###
-            setInterval("location.reload(true);", 300000);
+        return data;}))
+</script>
+
+<script>
+    function timeConverter(UNIX_timestamp) {
+        var a = new Date(UNIX_timestamp * 1000);
+        var months = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var sec = a.getSeconds();
+        var time =
+            date +
+            " " +
+            month +
+            " " +
+            year +
+            " " +
+            hour +
+            ":" +
+            min +
+            ":" +
+            sec;
+        return time;
+    }
+    function lastModified(uri) {
+        return new Promise((resolve, reject) => {
+            $.ajax({ url: uri, type: "HEAD" })
+                .done((d, s, xhr) => {
+                    let date = Date.parse(
+                        xhr.getResponseHeader("Last-Modified")
+                    );
+                    resolve(date);
+                })
+                .fail((xhr, s, err) => {
+                    reject(s);
+                });
         });
+    }
+    $(document).ready(function () {
+        $("#Tabla").load("content.html");
+        //////////////////////////////////////////
+        /////////////////////////////////////////
+        setTimeout(function () {
+            var target = location.href + "content.html";
+            lastModified(target)
+                .then((date) => {
+                    dateObj = new Date(date);
+                    var Ahora = new Date();
+                    var Dia = dateObj.getDate();
+                    var Mes = dateObj.getMonth() + 1;
+                    if (Mes == 13) Mes = 1;
+                    var Minutos = dateObj.getMinutes();
+                    if (Minutos < 10) Minutos = "0" + Minutos;
+                    var Horas = dateObj.getHours();
+                    var Anio = dateObj.getFullYear();
+                    var FechaDelArchivo =
+                        Horas +
+                        ":" +
+                        Minutos +
+                        " - " +
+                        Dia +
+                        "/" +
+                        Mes +
+                        "/" +
+                        Anio;
+                    //console.log(FechaDelArchivo);
+                    $("#HoraActual").prepend(
+                        "(Última Actualización: " + FechaDelArchivo + ")"
+                    );
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            //////////////////////////////////////////
+            /////////////////////////////////////////
+            //$("#HoraActual").prepend("(Última Actualización: ");
+            //$("#HoraActual").append(")");
+            //////////////////////////////////////////
+            /////////////////////////////////////////
+            $("#Tabla").prepend(
+                "<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>"
+            );
+            function isOdd(num) {
+                return num % 2;
+            }
+            function PintarNumerosMalos() {
+                for (var i = 0; i < 200; i++) {
+                    if (isOdd(i) == 0) {
+                        try {
+                            var Valor = parseInt(
+                                document.getElementsByTagName("td")[i].innerText
+                            );
+                        } catch (e) {
+                            continue;
+                        }
+                        document.getElementsByTagName("td")[i].style.textAlign =
+                            "center";
+                        if (Valor <= 3) {
+                            document.getElementsByTagName("td")[i].style.color =
+                                "orange";
+                            document.getElementsByTagName("td")[
+                                i + 1
+                            ].style.color = "orange";
+                        }
+                        if (Valor == 0) {
+                            document.getElementsByTagName("td")[i].style.color =
+                                "red";
+                            document.getElementsByTagName("td")[
+                                i + 1
+                            ].style.color = "red";
+                        }
+                    }
+                }
+            }
+            PintarNumerosMalos();
+            $("#AllContent").css("display", "block");
+            $("#Loading").css("display", "none");
+            // ### Eliminación de filas completamente vacías ###
+            for (var h = 0; h < 200; h++) {
+                for (var i = 0; i < 200; i++) {
+                    try {
+                        var textoEnFila = document.getElementsByTagName("tr")[i]
+                            .innerText;
+                        if (
+                            textoEnFila == "	" ||
+                            textoEnFila == "	" ||
+                            textoEnFila == "	"
+                        )
+                            document.getElementsByTagName("tr")[i].remove();
+                    } catch (e) {
+                        continue;
+                    }
+                }
+            }
+            // ### Eliminación de valores vacíos ###
+            for (var i = 0; i < 200; i++) {
+                try {
+                    var textoEnFila = document.getElementsByTagName("tr")[i]
+                        .innerText;
+                    var textoEnFila = textoEnFila.charAt(0);
+                    if (textoEnFila == "	" || textoEnFila == " ") {
+                        document.getElementsByTagName("tr")[i].remove();
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+    })
+        }, 550);
+        // ### Recargar la Web automáticamente cada 5 minutos ###
+        setInterval("location.reload(true);", 300000);
+    });
 </script>
