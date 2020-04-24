@@ -105,6 +105,11 @@
 </html>
 <script>
     function TraducirADiaLiteral(x) {
+        x -= 1;
+        let Day;
+        if (x == 0) {
+            x = 7;
+        }
         if (x == 1) {
             Day = "Domingo";
         }
@@ -127,6 +132,18 @@
             Day = "Sábado";
         }
         return Day;
+    }
+    TraducirADiaLiteral_Anterior(x) {
+        let Dia = x.substring(0, 2);
+        let Mes = x.substring(3, 5).replace("/", "");
+        let Año = x.substring(x.length - 4);
+        if (Mes.length == 1) {
+            Mes = "0" + Mes 
+        }
+        let objFecha = new Date(parseInt(Año), parseInt(Mes), parseInt(Dia));
+        let DiaEnLetras = parseInt(objFecha.getDay() - 1);
+        DiaEnLetras = TraducirADiaLiteral(DiaEnLetras);
+        return DiaEnLetras
     }
 </script>
 <script>
@@ -153,7 +170,9 @@
             data_3 = data[3];
             data_4 = data[4];
             data_5 = data[5];
+            let FechaCompleta:
             if (data_0 != undefined) {
+                FechaCompelta = TraducirADiaLiteral_Anterior(data[0].date);
                 document.querySelector("#Fecha_1").innerText =
                     "• " +
                     data[0].date +
@@ -391,47 +410,14 @@
             // ### Pintar Números Malos ###
             RealizarProcesoDeAprolijidad();
             setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 250);
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 500);
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 750);
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1000);
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1250);
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1500);
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1750);
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 2000);
         }, 550);
     });
     ////////////////////////////////////////////////////////
-    /*
-    setTimeout(function () {
-        // ••• Eliminación de filas completamente vacías •••
-        for (var h = 0; h < 200; h++) {
-            for (var i = 0; i < 200; i++) {
-                try {
-                    var textoEnFila = document.getElementsByTagName("tr")[i]
-                        .innerText;
-                    if (
-                        textoEnFila == "	" ||
-                        textoEnFila == "	" ||
-                        textoEnFila == "	"
-                    )
-                        document.getElementsByTagName("tr")[i].remove();
-                } catch (e) {
-                    continue;
-                }
-            }
-        }
-        // ••• Eliminación de valores vacíos •••
-        for (var i = 0; i < 200; i++) {
-            try {
-                var textoEnFila = document.getElementsByTagName("tr")[i]
-                    .innerText;
-                var textoEnFila = textoEnFila.charAt(0);
-                if (textoEnFila == "	" || textoEnFila == " ") {
-                    document.getElementsByTagName("tr")[i].remove();
-                }
-            } catch (e) {
-                continue;
-            }
-        }
-        // ••• Pintar Numeros Malos •••
-        PintarNumerosMalos();
-    }, 1000);
-    ////////////////////////////////////////////////////////
-    // ### Recargar la Web automáticamente cada 5 minutos ###
-    setInterval("location.reload(true);", 300000);
-    //});
-    */
 </script>
