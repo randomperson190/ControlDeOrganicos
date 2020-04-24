@@ -336,7 +336,7 @@ function RealizarProcesoDeAprolijidad() {
                 document.querySelector("#Fecha_6").style.display = "none";
                 document.querySelector("#BR_Fecha_6").style.display = "none";
             }
-            RealizarProcesoDeAprolijidad()
+            var ScrapeoFinalizado_TalloVerde = true;
         });
 </script>
 
@@ -430,27 +430,22 @@ function RealizarProcesoDeAprolijidad() {
                     console.log(err);
                 });
             /////////////////////////////////////////
-            $("#Tabla").prepend(
+            $("#Tabla").prepend (
                 "<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>"
             );
-            RealizarProcesoDeAprolijidad();
-            $("#AllContent").css("display", "block");
-            $("#Loading").css("display", "none");
+            var ScrapeoFinalizado_ComoSiempreOrganico = true;
         });
-        //////////////////////////////////////////
-        /////////////////////////////////////////
-        //setTimeout(function () {
-        //}, 550);
     });
 </script>
 
 <script>
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 250);
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 500);
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 750);
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1000);
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1250);
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1500);
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1750);
-    //setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 2000);
+    // ### Recargar cada 5 Minutos ###
+    setTimeout(function(){ location.reload(); }, 300000);
+    setInterval(function(){ 
+        if (ScrapeoFinalizado_TalloVerde && ScrapeoFinalizado_ComoSiempreOrganico) {
+            RealizarProcesoDeAprolijidad();
+            $("#AllContent").css("display", "block");
+            $("#Loading").css("display", "none");
+        }
+    }, 1000);
 </script>
