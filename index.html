@@ -26,7 +26,7 @@
                 border-left: 0px solid black;
                 border-right: 0px solid black;
                 border-bottom: 1px solid black;
-                align: left;
+                /* align: left; */
                 text-align: left;
                 background-color: #4caf50;
                 color: white;
@@ -104,38 +104,50 @@
 </html>
 
 <script>
-        // ### Obtención de Fechas ###
-        /*
-        fetch("https://cors-anywhere.herokuapp.com/" + 'https://api.talloverde.com/api/zones/48/availableSchedules', {
-                "headers": {
-                    "accept-language": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "no-cors",
-                    "sec-fetch-site": "cross-site",
-                },
-            })
-            .then(blob => blob.json())
-            .then(data => {
-            let numero = 0;
-            console.log(data[numero]);
-            document.querySelector("#Fecha_1").innerText = "• " + data[numero].date + ": " + data[numero].start + " a " + data[numero].end;
-            return data;})
-        */
+    // ### Obtención de Fechas ###
+    /*
     fetch("https://cors-anywhere.herokuapp.com/" + 'https://api.talloverde.com/api/zones/48/availableSchedules', {
-        "headers": {
-            "accept": "application/json, text/plain, */*",
-            "accept-language": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "no-cors",
-            "sec-fetch-site": "cross-site",
-        },
-    })
-    .then(blob => blob.json())
-    .then(data => {
-    let numero = 1;
-    console.log(data[0]);
-    document.querySelector("#Fecha_1").innerText = "• " + data[numero].date + ": " + data[numero].start + " a " + data[numero].end;
-    return data;}))
+            "headers": {
+                "accept-language": "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "no-cors",
+                "sec-fetch-site": "cross-site",
+            },
+        })
+        .then(blob => blob.json())
+        .then(data => {
+        let numero = 0;
+        console.log(data[numero]);
+        document.querySelector("#Fecha_1").innerText = "• " + data[numero].date + ": " + data[numero].start + " a " + data[numero].end;
+        return data;})
+        */
+    fetch(
+        "https://cors-anywhere.herokuapp.com/" +
+            "https://api.talloverde.com/api/zones/48/availableSchedules",
+        {
+            headers: {
+                accept: "application/json, text/plain, */*",
+                "accept-language":
+                    "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "no-cors",
+                "sec-fetch-site": "cross-site",
+            },
+        }
+    )
+        .then((blob) => blob.json())
+        .then((data) => {
+            let numero = 1;
+            console.log(data[0]);
+            document.querySelector("#Fecha_1").innerText =
+                "• " +
+                data[numero].date +
+                ": " +
+                data[numero].start +
+                " a " +
+                data[numero].end;
+            return data;
+        });
 </script>
 
 <script>
@@ -298,9 +310,9 @@
                     continue;
                 }
             }
-    })
-        }, 550);
-        // ### Recargar la Web automáticamente cada 5 minutos ###
-        setInterval("location.reload(true);", 300000);
-    });
+        });
+    }, 550);
+    // ### Recargar la Web automáticamente cada 5 minutos ###
+    setInterval("location.reload(true);", 300000);
+    //});
 </script>
