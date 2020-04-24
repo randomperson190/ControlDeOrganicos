@@ -392,10 +392,7 @@ function RealizarProcesoDeAprolijidad() {
         });
     }
     $(document).ready(function () {
-        $("#Tabla").load("content.html");
-        //////////////////////////////////////////
-        /////////////////////////////////////////
-        setTimeout(function () {
+        $("#Tabla").load("content.html", function() {
             var target = location.href + "content.html";
             lastModified(target)
                 .then((date) => {
@@ -432,7 +429,6 @@ function RealizarProcesoDeAprolijidad() {
                 .catch((err) => {
                     console.log(err);
                 });
-            //////////////////////////////////////////
             /////////////////////////////////////////
             $("#Tabla").prepend(
                 "<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>"
@@ -440,7 +436,11 @@ function RealizarProcesoDeAprolijidad() {
             RealizarProcesoDeAprolijidad();
             $("#AllContent").css("display", "block");
             $("#Loading").css("display", "none");
-        }, 550);
+        });
+        //////////////////////////////////////////
+        /////////////////////////////////////////
+        //setTimeout(function () {
+        //}, 550);
     });
 </script>
 
