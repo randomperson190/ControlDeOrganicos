@@ -336,6 +336,7 @@ function RealizarProcesoDeAprolijidad() {
                 document.querySelector("#Fecha_6").style.display = "none";
                 document.querySelector("#BR_Fecha_6").style.display = "none";
             }
+            RealizarProcesoDeAprolijidad()
         });
 </script>
 
@@ -439,13 +440,12 @@ function RealizarProcesoDeAprolijidad() {
             RealizarProcesoDeAprolijidad();
             $("#AllContent").css("display", "block");
             $("#Loading").css("display", "none");
-            // ### Pintar Números Malos ###
-            RealizarProcesoDeAprolijidad();
         }, 550);
     });
 </script>
 
 <script>
+    /*
     setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 250);
     setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 500);
     setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 750);
@@ -454,4 +454,5 @@ function RealizarProcesoDeAprolijidad() {
     setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1500);
     setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 1750);
     setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 2000);
+    /*
 </script>
