@@ -103,7 +103,32 @@
         </div>
     </body>
 </html>
-
+<script>
+    function TraducirADiaLiteral(x) {
+        if (x == 1) {
+            Day = "Domingo";
+        }
+        if (x == 2) {
+            Day = "Lunes";
+        }
+        if (x == 3) {
+            Day = "Martes";
+        }
+        if (x == 4) {
+            Day = "Miércoles";
+        }
+        if (x == 5) {
+            Day = "Jueves";
+        }
+        if (x == 6) {
+            Day = "Viernes";
+        }
+        if (x == 7) {
+            Day = "Sábado";
+        }
+        return Day;
+    }
+</script>
 <script>
     // ### Obtención de Fechas ###
     fetch(
@@ -326,41 +351,46 @@
                     }
                 }
             }
-            PintarNumerosMalos();
-            $("#AllContent").css("display", "block");
-            $("#Loading").css("display", "none");
-            // ### Pintar Números Malos ###
-            PintarNumerosMalos();
-            // ### Eliminación de filas completamente vacías ###
-            for (var h = 0; h < 200; h++) {
+            function RealizarProcesoDeAprolijidad() {
+                // ### Pintar Números Malos ###
+                PintarNumerosMalos();
+                // ### Eliminación de filas completamente vacías ###
+                for (var h = 0; h < 200; h++) {
+                    for (var i = 0; i < 200; i++) {
+                        try {
+                            var textoEnFila = document.getElementsByTagName("tr")[i]
+                                .innerText;
+                            if (
+                                textoEnFila == "	" ||
+                                textoEnFila == "	" ||
+                                textoEnFila == "	"
+                            )
+                                document.getElementsByTagName("tr")[i].remove();
+                        } catch (e) {
+                            continue;
+                        }
+                    }
+                }
+                // ### Eliminación de valores vacíos ###
                 for (var i = 0; i < 200; i++) {
                     try {
                         var textoEnFila = document.getElementsByTagName("tr")[i]
                             .innerText;
-                        if (
-                            textoEnFila == "	" ||
-                            textoEnFila == "	" ||
-                            textoEnFila == "	"
-                        )
+                        var textoEnFila = textoEnFila.charAt(0);
+                        if (textoEnFila == "	" || textoEnFila == " ") {
                             document.getElementsByTagName("tr")[i].remove();
+                        }
                     } catch (e) {
                         continue;
                     }
                 }
             }
-            // ### Eliminación de valores vacíos ###
-            for (var i = 0; i < 200; i++) {
-                try {
-                    var textoEnFila = document.getElementsByTagName("tr")[i]
-                        .innerText;
-                    var textoEnFila = textoEnFila.charAt(0);
-                    if (textoEnFila == "	" || textoEnFila == " ") {
-                        document.getElementsByTagName("tr")[i].remove();
-                    }
-                } catch (e) {
-                    continue;
-                }
-            }
+            RealizarProcesoDeAprolijidad();
+            $("#AllContent").css("display", "block");
+            $("#Loading").css("display", "none");
+            // ### Pintar Números Malos ###
+            RealizarProcesoDeAprolijidad();
+            setTimeout(function(){ RealizarProcesoDeAprolijidad(); }, 250);
         }, 550);
     });
     ////////////////////////////////////////////////////////
