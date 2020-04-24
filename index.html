@@ -238,10 +238,6 @@
                 });
             //////////////////////////////////////////
             /////////////////////////////////////////
-            //$("#HoraActual").prepend("(Última Actualización: ");
-            //$("#HoraActual").append(")");
-            //////////////////////////////////////////
-            /////////////////////////////////////////
             $("#Tabla").prepend(
                 "<tr><th align='center'>Disponibles</th><th align='left'>Producto</th>"
             );
@@ -310,9 +306,47 @@
                     continue;
                 }
             }
-        });
-    }, 550);
+        }, 550);
+    });
+    ////////////////////////////////////////////////////////
+    /*
+    setTimeout(function () {
+        // ••• Eliminación de filas completamente vacías •••
+        for (var h = 0; h < 200; h++) {
+            for (var i = 0; i < 200; i++) {
+                try {
+                    var textoEnFila = document.getElementsByTagName("tr")[i]
+                        .innerText;
+                    if (
+                        textoEnFila == "	" ||
+                        textoEnFila == "	" ||
+                        textoEnFila == "	"
+                    )
+                        document.getElementsByTagName("tr")[i].remove();
+                } catch (e) {
+                    continue;
+                }
+            }
+        }
+        // ••• Eliminación de valores vacíos •••
+        for (var i = 0; i < 200; i++) {
+            try {
+                var textoEnFila = document.getElementsByTagName("tr")[i]
+                    .innerText;
+                var textoEnFila = textoEnFila.charAt(0);
+                if (textoEnFila == "	" || textoEnFila == " ") {
+                    document.getElementsByTagName("tr")[i].remove();
+                }
+            } catch (e) {
+                continue;
+            }
+        }
+        // ••• Pintar Numeros Malos •••
+        PintarNumerosMalos();
+    }, 1000);
+    ////////////////////////////////////////////////////////
     // ### Recargar la Web automáticamente cada 5 minutos ###
     setInterval("location.reload(true);", 300000);
     //});
+    */
 </script>
